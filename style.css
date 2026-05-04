@@ -1,0 +1,371 @@
+html { scroll-behavior: smooth; }
+/* 1. ГЛОБАЛЬНІ НАЛАШТУВАННЯ (Адаптивність) */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #050505; /* Глибокий чорний */
+    color: #e0e0e0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+}
+
+/* 2. ХЕДЕР (Прозорий та фіксований, як у MSG Sphere) */
+.header-menu {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(10px); /* Ефект розмиття фону */
+    padding: 15px 0;
+    text-align: center;
+    z-index: 1000;
+    border-bottom: 1px solid #333;
+}
+
+.header-menu nav a {
+    color: white;
+    text-decoration: none;
+    margin: 0 20px;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 14px;
+    transition: 0.3s;
+}
+
+.header-menu nav a:hover {
+    color: #cfb53b; /* Золотий колір при наведенні */
+}
+
+/* 3. БАНЕР (Hero Section з фоном Baldur's Gate 3) */
+.banner {
+    height: 100vh; /* На весь екран */
+    background: linear-gradient(rgba(0,0,0,0.3), rgba(5,5,5,1)), 
+                url('media/main_bg.jpg') no-repeat center center/cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.main-title {
+    font-size: 4rem;
+    color: #cfb53b;
+    text-transform: uppercase;
+    margin: 0;
+    text-shadow: 0 0 20px rgba(207, 181, 59, 0.5);
+}
+
+/* 4. ІНФОБЛОКИ ТА СІТКА (Рис. 1 та 8 з методички) */
+.content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 50px 20px;
+}
+
+.info-section {
+    margin-bottom: 80px;
+    text-align: center;
+}
+
+/* Графічне меню (Сітка 3х3) */
+.grid-menu {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    max-width: 700px;
+    margin: 0 auto;	
+}
+
+.grid-menu a img {
+    width: 200px; /* "Гумова" верстка за рахунок flex-wrap */
+    height: 200px;
+	object-fit: cover;
+    border-radius: 10px;
+    transition: 0.4s;
+    border: 2px solid #222;
+}
+
+.grid-menu a img:hover {
+    transform: scale(1.05);
+    border-color: #cfb53b;
+    box-shadow: 0 0 20px rgba(207, 181, 59, 0.4);
+}
+
+/* Блок статистики (Цифри як у MSG Sphere) */
+.stats-container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    background: #111;
+    padding: 40px;
+    border-radius: 15px;
+    border: 1px solid #222;
+}
+
+.stat-item h3 {
+    font-size: 3rem;
+    color: #cfb53b;
+    margin: 0;
+}
+
+/* 5. ПСЕВДОКНОПКА (Рис. 10-11 з методички) */
+.butt {
+    display: inline-block;
+    padding: 15px 40px;
+    background-color: transparent;
+    color: #cfb53b;
+    border: 2px solid #cfb53b;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: bold;
+    border-radius: 30px;
+    transition: 0.5s;
+    position: relative;
+    overflow: hidden;
+}
+
+.butt:hover {
+    color: #000;
+    background-color: #cfb53b;
+    box-shadow: 0 0 30px #cfb53b;
+}
+
+/* 6. ФУТЕР */
+footer {
+    padding: 50px;
+    background-color: #000;
+    border-top: 1px solid #222;
+    text-align: center;
+    font-size: 0.9rem;
+}
+/* Макет з трьома колонками (Рис. 7-8) */
+.main-layout {
+    display: flex;
+    max-width: 1300px;
+    margin: 100px auto 50px; /* Отступ сверху из-за фиксированного хедера */
+    gap: 20px;
+    padding: 0 20px;
+}
+
+#leftBlock, #rightBlock {
+    flex: 20%; /* Резинова верстка */
+    background: #111;
+    padding: 20px;
+    border-radius: 10px;
+    border: 1px solid #222;
+    height: fit-content;
+}
+
+#infoBlock {
+    flex: 60%; /* Центр займає більше місця */
+    background: #151515;
+    padding: 30px;
+    border-radius: 10px;
+    border: 1px solid #333;
+}
+
+/* Стиль таблиці як у RPG */
+.rpg-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    border: 1px solid #cfb53b;
+}
+
+.rpg-table th, .rpg-table td {
+    padding: 12px;
+    border: 1px solid #333;
+    text-align: left;
+}
+
+.rpg-table th {
+    background: #cfb53b;
+    color: black;
+}
+
+.gold-text {
+    color: #cfb53b;
+    font-weight: bold;
+}
+
+/* Адаптивність: на мобільних блоки стають один під одного */
+@media (max-width: 900px) {
+    .main-layout {
+        flex-direction: column;
+    }
+}
+/* Для адаптивності карти та відео */
+.responsive-img {
+    max-width: 100%;
+    height: auto;
+    border: 1px solid #333;
+    border-radius: 8px;
+}
+
+.map-container {
+    text-align: center;
+    overflow-x: auto; /* Щоб велика карта на телефонах можна було скролити */
+}
+
+/* Колір горизонтальної лінії */
+hr {
+    border: 0;
+    height: 1px;
+    background: linear-gradient(to right, transparent, #cfb53b, transparent);
+    margin: 30px 0;
+}
+
+/* Додатково для списку у бічному блоці */
+.side-menu {
+    list-style: none;
+    padding: 0;
+}
+
+.side-menu li {
+    padding: 10px 0;
+    border-bottom: 1px solid #222;
+}
+/* Увеличенный кубик в совете */
+.big-d20 {
+    width: 120px; /* Было 50px, стало 120px */
+    height: auto;
+    margin-top: 20px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    filter: drop-shadow(0 0 10px rgba(207, 181, 59, 0.3));
+}
+
+/* Сетка персонажей с описанием */
+.char-details-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Две колонки */
+    gap: 25px;
+    margin-top: 20px;
+}
+
+.char-detail-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+    background: rgba(255, 255, 255, 0.05);
+    padding: 15px;
+    border-radius: 12px;
+    border: 1px solid #333;
+    transition: 0.3s;
+}
+
+.char-detail-item:hover {
+    border-color: #cfb53b;
+    transform: translateY(-5px);
+}
+
+/* Более крупные фото героев */
+.char-detail-item img {
+    width: 90px; /* Увеличили размер фото */
+    height: 90px;
+    border-radius: 10px;
+    border: 2px solid #cfb53b;
+    object-fit: cover;
+}
+
+.char-text h4 {
+    margin: 0 0 5px 0;
+    color: #cfb53b;
+    font-size: 1.1rem;
+}
+
+.char-text p {
+    margin: 0;
+    font-size: 0.9rem;
+    line-height: 1.4;
+    color: #ccc;
+}
+
+/* Адаптивность для мобилок */
+@media (max-width: 600px) {
+    .char-details-grid {
+        grid-template-columns: 1fr;
+    }
+}
+/* Увеличенная иконка награды */
+.big-award {
+    width: 250px;        /* Увеличили размер */
+    height: auto;
+    margin-top: 15px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    /* Добавим золотистое свечение, чтобы подчеркнуть значимость награды */
+    filter: drop-shadow(0 0 15px rgba(207, 181, 59, 0.4));
+    transition: 0.3s;
+}
+
+.big-award:hover {
+    transform: scale(1.1); /* Небольшой интерактив при наведении */
+    filter: drop-shadow(0 0 20px rgba(207, 181, 59, 0.6));
+}
+/* Круг Metacritic */
+.score-circle {
+    width: 80px;
+    height: 80px;
+    background-color: #66cc33; /* Зеленый цвет Metacritic */
+    color: white;
+    font-size: 32px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    margin: 0 auto 10px;
+    box-shadow: 0 0 15px rgba(102, 204, 51, 0.4);
+}
+
+/* Сетка карточек изданий */
+.rating-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin: 20px 0;
+}
+
+.rating-card {
+    background: rgba(255,255,255,0.05);
+    padding: 15px;
+    border-radius: 10px;
+    text-align: center;
+    border: 1px solid #333;
+}
+
+.rating-card img {
+    height: 30px;
+    margin-bottom: 10px;
+    filter: brightness(0) invert(1); /* Делает логотипы белыми для стиля */
+}
+
+/* Стилизация отзывов Steam */
+.steam-review {
+    background: rgba(30, 44, 62, 0.4); /* Синеватый оттенок Steam */
+    border-left: 4px solid #66c0f4;
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 0 10px 10px 0;
+}
+
+.review-header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 10px;
+    color: #66c0f4;
+}
+body {
+    background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.7)), 
+                url('media/epic_landscape.jpg') no-repeat center center fixed;
+    background-size: cover;
+}

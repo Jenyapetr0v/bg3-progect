@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Тестування - Baldur's Gate 3</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header class="header-menu">
+        <nav>
+            <a href="index.html">Головна</a>
+            <a href="story.html">Сюжет</a>
+            <a href="characters.html">Персонажі</a>
+            <a href="test.html" style="color: #cfb53b;">Тест</a>
+        </nav>
+    </header>
+
+    <section class="banner-small" style="background: linear-gradient(rgba(0,0,0,0.6), rgba(5,5,5,1)), url('media/test_bg.jpg') center/cover;">
+        <h1 class="main-title" style="font-size: 2.5rem;">Перевірка знань</h1>
+    </section>
+
+    <main class="main-layout">
+        
+        <aside id="leftBlock">
+            <h3>Інструкція</h3>
+            <p>Усі відповіді на запитання ви можете знайти на сторінках нашого сайту. Будьте уважні!</p>
+        </aside>
+
+        <article id="infoBlock" style="width: 100%; max-width: 800px; margin: 0 auto; background: rgba(0,0,0,0.5); padding: 20px; border-radius: 15px;">
+            
+<script type="text/javascript">
+function check_me() {
+    var f = document.forms["test"];
+    var count = 0;
+    if (!f.Q1[0].checked && !f.Q1[1].checked && !f.Q1[2].checked) count++;
+    if (!f.Q2[0].checked && !f.Q2[1].checked && !f.Q2[2].checked) count++;
+    if (!f.Q3[0].checked && !f.Q3[1].checked && !f.Q3[2].checked) count++;
+    if (!f.Q4[0].checked && !f.Q4[1].checked && !f.Q4[2].checked) count++;
+    if (!f.Q5[0].checked && !f.Q5[1].checked && !f.Q5[2].checked) count++;
+
+    if (count > 0) {
+        alert("Ви відповіли не на всі запитання! Залишилося: " + count);
+    } else {
+        var res = "11022"; // Правильные индексы ответов
+        var answ = "";
+        var score = 0;
+
+        // Логика проверки
+        var q1 = f.Q1[0].checked ? "1" : "0";
+        var q2 = f.Q2[1].checked ? "1" : "0";
+        var q3 = f.Q3[0].checked ? "1" : "0";
+        var q4 = f.Q4[2].checked ? "1" : "0";
+        var q5 = f.Q5[2].checked ? "1" : "0";
+        
+        answ = q1 + q2 + q3 + q4 + q5;
+
+        for (var i = 0; i < answ.length; i++) {
+            if (answ[i] == "1") score++;
+        }
+
+        var marks = ["НЕЗАДОВІЛЬНО", "НЕЗАДОВІЛЬНО", "ЗАДОВІЛЬНО", "ЗАДОВІЛЬНО", "ДОБРЕ", "ВІДМІННО"];
+        f.s1.value = "Правильних відповідей: " + score + " з 5. Ваша оцінка: " + marks[score];
+
+        // Ставим плюсики и минусики
+        f.T1.value = (q1 == "1") ? "+" : "-";
+        f.T2.value = (q2 == "1") ? "+" : "-";
+        f.T3.value = (q3 == "1") ? "+" : "-";
+        f.T4.value = (q4 == "1") ? "+" : "-";
+        f.T5.value = (q5 == "1") ? "+" : "-";
+    }
+}
+</script>
+
+            <form name="test">
+                <ol>
+                    <li><input type="text" size="1" name="T1" readonly> <b>Згідно з описом сюжету, скільки всього варіантів фіналу реалізовано у грі?</b><br>
+                        <input type="radio" name="Q1"> Близько 100<br>
+                        <input type="radio" name="Q1"> Понад 17 000<br>
+                        <input type="radio" name="Q1"> Лише 3<br><br>
+                    </li>
+                    <li><input type="text" size="1" name="T2" readonly> <b>Яку основну особливість має Гейл згідно з таблицею класів?</b><br>
+                        <input type="radio" name="Q2"> Майстерність меча<br>
+                        <input type="radio" name="Q2"> Вивчення заклинань із сувоїв<br>
+                        <input type="radio" name="Q2"> Приховані атаки<br><br>
+                    </li>
+                    <li><input type="text" size="1" name="T3" readonly> <b>Яку оцінку поставило видання IGN грі Baldur's Gate 3 на твоїй сторінці рейтингу?</b><br>
+                        <input type="radio" name="Q3"> 10/10<br>
+                        <input type="radio" name="Q3"> 8/10<br>
+                        <input type="radio" name="Q3"> 7.5/10<br><br>
+                    </li>
+                    <li><input type="text" size="1" name="T4" readonly> <b>До якої фракції належить Джахейра згідно з описом її картки?</b><br>
+                        <input type="radio" name="Q4"> Культ Абсолют<br>
+                        <input type="radio" name="Q4"> Смарагдовий гай<br>
+                        <input type="radio" name="Q4"> Арфісти<br><br>
+                    </li>
+                    <li><input type="text" size="1" name="T5" readonly> <b>Який відсоток позитивних відгуків має гра в Steam згідно зі статусом на сайті?</b><br>
+                        <input type="radio" name="Q5"> 75%<br>
+                        <input type="radio" name="Q5"> 81%<br>
+                        <input type="radio" name="Q5"> 96%<br><br>
+                    </li>
+                </ol>
+                <center>
+                    <textarea name="s1" rows="3" cols="60" readonly style="background:#1a1a1a; color:#cfb53b; border:1px solid #444; padding:10px;"></textarea><br><br>
+                    <input type="button" value="Показати результат" onclick="check_me()" class="butt">
+                    <input type="reset" value="Скинути відповіді" class="butt" style="margin-left:10px;">
+                </center>
+            </form>
+
+        </article>
+
+        <aside id="rightBlock">
+            <h3>Порада</h3>
+            <p>Якщо ви забули відповідь, просто поверніться на вкладку "Сюжет" або "Персонажі".</p>
+        </aside>
+
+    </main>
+
+    <footer>
+        <p>Dnipro 2026 | Petrov Evgen | Лабораторна №4</p>
+    </footer>
+
+</body>
+</html>
